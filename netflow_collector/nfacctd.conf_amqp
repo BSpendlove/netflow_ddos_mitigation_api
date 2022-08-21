@@ -1,0 +1,16 @@
+daemonize: false
+nfacctd_port: 9995
+nfacctd_time_new: true
+
+plugins: amqp[broker]
+
+aggregate[broker]: src_host, dst_host, src_port, dst_port, proto, tos, timestamp_start, timestamp_end
+
+amqp_host[broker]: rabbitmq
+amqp_user[broker]: admin
+amqp_passwd[broker]: admin
+amqp_routing_key[broker]: flows
+amqp_exchange[broker]: netflow
+amqp_exchange_type[broker]: fanout
+amqp_output[broker]: json
+amqp_refresh_time[broker]: 15

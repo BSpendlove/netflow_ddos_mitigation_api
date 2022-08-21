@@ -1,0 +1,50 @@
+{
+	"ts": "2022-08-17 20:22:39",    # Time Start
+	"te": "2022-08-17 20:22:40",    # Time End
+	"td": "1.885",                  # ?
+	"sa": "142.250.200.2",          # Source Address
+	"da": "10.4.20.14",             # Destination Address
+	"sp": "443",                    # Source Port
+	"dp": "63059",                  # Destination Port
+	"pr": "UDP",                    # Protocol
+	"flg": "........",              # TCP Flags
+	"fwd": "0",                     # ? Forwarding Status ?
+	"stos": "0",                    # ?
+	"ipkt": "12",                   # Incoming Packets
+	"ibyt": "3286",                 # Incoming Bytes
+	"opkt": "0",                    # Outgoing Packets
+	"obyt": "0",                    # Outgoing Bytes
+	"in": "2",                      # SNMP Interface Index In
+	"out": "3",                     # SNMP Interface Index Out
+	"sas": "0",                     # ?
+	"das": "0",                     # ?
+	"smk": "0",                     # ?
+	"dmk": "0",                     # ?
+	"dtos": "0",                    # TOS
+	"dir": "0",                     # ?
+	"nh": "0.0.0.0",                # Next Hop
+	"nhb": "0.0.0.0",               # ?
+	"svln": "0",                    # Source VLAN
+	"dvln": "0",                    # Destination VLAN
+	"ismc": "00:00:00:00:00:00",    # Incoming Source MAC
+	"odmc": "00:00:00:00:00:00",    # Outgoing Destination MAC
+	"idmc": "00:00:00:00:00:00",    # Incoming Destination MAC
+	"osmc": "00:00:00:00:00:00",    # Outgoing Source MAC
+	"mpls1": "0-0-0",               # MPLS Label 1
+	"mpls2": "0-0-0",               # MPLS Label 2
+	"mpls3": "0-0-0",               # MPLS Label 3
+	"mpls4": "0-0-0",               # MPLS Label 4
+	"mpls5": "0-0-0",               # MPLS Label 5
+	"mpls6": "0-0-0",               # MPLS Label 6
+	"mpls7": "0-0-0",               # MPLS Label 7
+	"mpls8": "0-0-0",               # MPLS Label 8
+	"mpls9": "0-0-0",               # MPLS Label 9
+	"mpls10": "0-0-0",              # MPLS Label 10
+	"cl": "    0.000",              # ?
+	"sl": "    0.000",              # ?
+	"al": "    0.000",              # ?
+	"ra": "0.0.0.0",                # ? 
+	"eng": "0/0",                   # ? Engine Type or ID ?
+	"exid": "1",                    # ? Engine ID ?
+	"tr": "1970-01-01 00:00:00.000" # ?
+}

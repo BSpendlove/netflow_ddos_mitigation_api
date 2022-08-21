@@ -1,0 +1,51 @@
+version: "3.6"
+services:
+  netflow_worker:
+    build:
+      context: ./netflow_worker
+      dockerfile: ../dockerfiles/netflow_worker.Dockerfile
+    ports:
+      - "9995:9995/udp"
+    volumes:
+      - ./netflow_worker/data:/tmp/nfcap_files
+    env_file:
+      - ./envs/netflow.env
+    depends_on:
+      - rabbitmq
+
+  netflow_consumer:
+    build:
+      context: ./netflow_worker
+      dockerfile: ../dockerfiles/netflow_consumer.Dockerfile
+    env_file:
+      - ./envs/netflow.env
+    restart: always
+    depends_on:
+      - rabbitmq
+      - mongo
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    env_file:
+      - ./envs/rabbitmq.env
+
+  mongo:
+    image: mongo
+    restart: always
+    env_file:
+      - ./envs/mongo.env
+    ports:
+      - 27017:27017
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    env_file:
+      - ./envs/mongo.env
+    depends_on:
+      - mongo

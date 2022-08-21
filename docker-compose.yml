@@ -1,0 +1,47 @@
+version: "3.6"
+services:
+  netflow_collector:
+    image: pmacct/nfacctd:latest
+    restart: always
+    volumes:
+      - ./netflow_collector/nfacctd.conf:/etc/pmacct/nfacctd.conf:ro
+    depends_on:
+      - db
+
+  db:
+    image: mysql
+    ports:
+      - "3306:3306"
+    restart: always
+    env_file:
+      - ./envs/mysql.env
+    volumes:
+      - ./database/init:/docker-entrypoint-initdb.d
+
+  nginx:
+    build: ./nginx
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    ports:
+      - "9995:9995/udp"
+    depends_on:
+      - netflow_collector
+
+  #netflow_consumer:
+  #  build:
+  #    context: ./netflow_worker
+  #    dockerfile: ../dockerfiles/netflow_consumer.Dockerfile
+  #  env_file:
+  #    - ./envs/netflow.env
+  #  restart: always
+  #  depends_on:
+  #    - rabbitmq
+  #    - netflow_collector
+
+  #rabbitmq:
+  #  image: rabbitmq:3-management-alpine
+  #  ports:
+  #    - "5672:5672"
+  #    - "15672:15672"
+  #  env_file:
+  #    - ./envs/rabbitmq.env
